@@ -3,20 +3,20 @@
 .venv*/
 venv/
 
-# Instagram browser sessions and credentials
+# Instagram browser sessions and secrets
 .sesion_instagram/
 .instagram_session/
 .env
 .env.*
 
-# Local extraction data and generated reports (may contain profile data)
+# Local extraction data and generated reports
 results/
 resultados/
 dashboard.html
 benford.html
 bigfive.html
 
-# Python and document QA artifacts
+# Python cache and temporary review files
 __pycache__/
 *.py[cod]
 docx_render_review/
