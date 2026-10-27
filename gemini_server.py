@@ -179,12 +179,12 @@ class Handler(BaseHTTPRequestHandler):
             return
         captions = payload.get("captions") if isinstance(payload, dict) else None
         if not isinstance(captions, list) or len(captions) > 50 or any(not isinstance(text, str) for text in captions):
-            self.send_json(400, {"error": "Se esperaba una lista de hasta 50 captions."})
+            self.send_json(400, {"error": "Expected a list of up to 50 captions."})
             return
         captions = [text.strip()[:3000] for text in captions if text.strip()]
         words = re.findall(r"[\w\u00c0-\u024f]+", " ".join(captions), flags=re.UNICODE)
         if len(captions) < 3 or len(words) < 50 or sum(map(len, captions)) > 30_000:
-            self.send_json(400, {"error": "Se necesitan 3 captions and un corpus de hasta 30 000 caracteres."})
+            self.send_json(400, {"error": "At least 3 captions and a corpus of up to 30,000 characters are required."})
             return
         if not os.environ.get("GEMINI_API_KEY"):
             self.send_json(503, {"error": "Set GEMINI_API_KEY in this terminal and restart the server."})
