@@ -23,10 +23,10 @@ py -m venv .venv
 .\.venv\Scripts\python.exe scraper.py --username josedeodo --limit 50 --relationship-limit 100
 ```
 
-For Benford analysis, request a sample of up to 250 followers so the scraper can try to collect at least 200 profiles with both public counters:
+For Benford analysis, enable `--benford`. The scraper automatically inspects up to 250 follower candidates and tries to collect at least 200 profiles with both public counters:
 
 ```powershell
-.\.venv\Scripts\python.exe scraper.py --username josedeodo --limit 25 --relationship-limit 250 --benford
+.\.venv\Scripts\python.exe scraper.py --username josedeodo --limit 25 --relationship-limit 100 --benford
 ```
 
 The scraper opens a browser for your Instagram session. Sign in only in the browser window it opens. Follow Instagram’s rules and use a modest collection rate. A complete 200-profile sample is not guaranteed.
